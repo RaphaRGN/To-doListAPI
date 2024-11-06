@@ -28,7 +28,7 @@ public class TodoController {
    }
 
    @PostMapping
-   public List<Todo> create (Todo todo){
+   public List<Todo> create (@RequestBody Todo todo){
 
       return todoService.create(todo);
 
@@ -39,4 +39,13 @@ public class TodoController {
 
       return todoService.delete(id);
    }
-}
+
+   @PutMapping
+   public List<Todo> update (Todo todo) {
+
+      return todoService.update(todo);
+
+   }
+
+   }
+

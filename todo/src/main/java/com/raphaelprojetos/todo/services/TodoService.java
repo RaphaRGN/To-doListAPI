@@ -26,7 +26,7 @@ public class TodoService {
     public List<Todo> list() {
         //Faz a listagem baseado na prioridade (Decresente) e no nome (Crescente)
 
-        Sort sort = Sort.by("prioridade").descending().and(Sort.by("nome").ascending());
+        Sort sort = Sort.by("prioridade").descending().and(Sort.by("titulo").ascending());
         return todoRepository.findAll(sort);
     }
 

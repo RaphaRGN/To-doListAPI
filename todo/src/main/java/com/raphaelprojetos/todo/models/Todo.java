@@ -3,12 +3,12 @@ package com.raphaelprojetos.todo.models;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name="Tarefas")
+@Table(name="Lista")
 public class Todo {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public int id;
+    public long id;
     public String titulo;
     public int prioridade;
     public String descricao;
@@ -16,9 +16,9 @@ public class Todo {
 
     //Getters and Setters
 
-    public int getId() {return id;}
+    public long getId() {return id;}
 
-    public void setId(int id) {this.id = id;}
+    public void setId(long id) {this.id = id;}
     public String getTitulo() {return titulo;}
 
     public void setTitulo(String titulo) {this.titulo = titulo;}
