@@ -14,38 +14,42 @@ public class TodoController {
 
    private TodoService todoService;
 
-   public TodoController  (TodoService todoService){
+   public TodoController(TodoService todoService) {
 
-         this.todoService = todoService;
+      this.todoService = todoService;
 
    }
 
    @GetMapping
-   public List<Todo> list (Todo todo){
+   @ResponseBody
+   public List<Todo> list(Todo todo) {
 
       return todoService.list();
 
    }
 
    @PostMapping
-   public List<Todo> create (@RequestBody Todo todo){
+   @ResponseBody
+   public List<Todo> create(@RequestBody Todo todo) {
 
       return todoService.create(todo);
 
    }
 
    @DeleteMapping("{id}")
-   public List<Todo> delete (@PathVariable("id")long id) {
+   @ResponseBody
+   public List<Todo> delete(@PathVariable("id") long id) {
 
       return todoService.delete(id);
    }
 
    @PutMapping
-   public List<Todo> update (Todo todo) {
+   @ResponseBody
+   public List<Todo> update(Todo todo) {
 
       return todoService.update(todo);
 
    }
 
-   }
+}
 
