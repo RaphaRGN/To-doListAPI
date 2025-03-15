@@ -3,6 +3,7 @@ package com.raphaelprojetos.todo.controllers;
 import com.raphaelprojetos.todo.models.Todo;
 import com.raphaelprojetos.todo.services.TodoService;
 import jakarta.persistence.Id;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -43,12 +44,11 @@ public class TodoController {
       return todoService.delete(id);
    }
 
-   @PutMapping
+   @PutMapping("{id}")
    @ResponseBody
-   public List<Todo> update(Todo todo) {
-
-      return todoService.update(todo);
-
+   public ResponseEntity<Todo> update(@PathVariable("id") Long id, @RequestBody Todo todo) {
+      Todo updatedTodo = todoService.update(id, todo);
+      return ResponseEntity.ok(updatedTodo);
    }
 
 }
